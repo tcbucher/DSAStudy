@@ -67,6 +67,7 @@ public class BinaryTreeDFS
         newTree.addLeft("R").addLeft("E").addLeft("A").addLeft("T");
         newTree.addRight("O").addLeft("O").addLeft("D");
         newTree.getRight().addRight("L").addLeft("D");
+        newTree.getRight().getRight().addRight("E").addRight("M");
         return newTree;
     }
 }
