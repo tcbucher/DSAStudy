@@ -5,6 +5,7 @@ public class BinaryTree<T> {
 	private T data;
 	private BinaryTree<T> leftChild;
 	private BinaryTree<T> rightChild;
+	int size;
 	
 	public void setData(T data)
 	{
@@ -41,7 +42,12 @@ public class BinaryTree<T> {
 	{
 		return this.rightChild;
 	}
-	
+
+	public int size()
+	{
+		return this.size;
+	}
+
 	@Override
 	public String toString()
 	{

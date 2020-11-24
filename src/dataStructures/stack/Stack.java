@@ -40,7 +40,17 @@ public class Stack<T> {
 		
 		return data;
 	}
-	
+
+	public boolean contains(T item)
+	{
+		for (Object value : values)
+		{
+			if (((T)value).equals(item))
+				return true;
+		}
+		return false;
+	}
+
 	public T peek()
 	{
 		return (this.isEmpty())? null: (T) values[0];
@@ -65,5 +75,5 @@ public class Stack<T> {
 		
 		return returnString + "}";
 	}
-	
+
 }
