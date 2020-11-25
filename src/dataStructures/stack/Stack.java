@@ -3,12 +3,12 @@ package dataStructures.stack;
 public class Stack<T> {
 
 	private Object[] values;
-	
+
 	public Stack()
 	{
 		values = new Object[0];
 	}
-	
+
 	public void push(T data)
 	{
 		Object[] newValues = new Object[values.length + 1];
@@ -17,17 +17,17 @@ public class Stack<T> {
 		{
 			newValues[i + 1] = values[i];
 		}
-		
+
 		values = newValues;
 	}
-	
+
 	public T pop()
 	{
 		if(this.isEmpty())
 		{
 			return null; // Not ideal, since client can validly push a null reference
 		}
-		
+
 		T data = (T) values[0];
 
 		Object[] newValues = new Object[values.length - 1];
@@ -37,7 +37,7 @@ public class Stack<T> {
 		}
 
 		values = newValues;
-		
+
 		return data;
 	}
 
@@ -55,25 +55,29 @@ public class Stack<T> {
 	{
 		return (this.isEmpty())? null: (T) values[0];
 	}
-	
+
 	public boolean isEmpty()
 	{
 		return values.length == 0;
 	}
-	
+
+	public int size()
+	{
+		return values.length;
+	}
+
 	@Override
 	public String toString()
 	{
 		String returnString = "Stack{";
-		
+
 		for (Object value : values)
 		{
 			returnString += value.toString();
 			returnString += ",";
 			returnString += System.lineSeparator();
 		}
-		
+
 		return returnString + "}";
 	}
-
 }

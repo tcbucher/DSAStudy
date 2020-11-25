@@ -13,17 +13,18 @@ public class BinaryTree<T> {
 	private T data;
 	private BinaryTree<T> leftChild;
 	private BinaryTree<T> rightChild;
+	//TODO: implement a size field
 
 	public void setData(T data)
 	{
 		this.data = data;
 	}
-	
+
 	public T getData()
 	{
 		return this.data;
 	}
-	
+
 	public BinaryTree<T> addLeft(T data)
 	{
 		BinaryTree<T> newTree = new BinaryTree();
@@ -31,7 +32,7 @@ public class BinaryTree<T> {
 		this.leftChild = newTree;
 		return this.leftChild;
 	}
-	
+
 	public BinaryTree<T> addRight(T data)
 	{
 		BinaryTree<T> newTree = new BinaryTree();
@@ -44,7 +45,7 @@ public class BinaryTree<T> {
 	{
 		return this.leftChild;
 	}
-	
+
 	public BinaryTree<T> getRight()
 	{
 		return this.rightChild;

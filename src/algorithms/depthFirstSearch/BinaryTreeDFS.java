@@ -1,6 +1,7 @@
 package algorithms.depthFirstSearch;
 
 import dataStructures.binaryTree.BinaryTree;
+import dataStructures.binaryTree.BinaryTreeTestUtil;
 import dataStructures.stack.Stack;
 
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ public class BinaryTreeDFS
     {
         List<BinaryTree<String>> visitedNodes = new ArrayList<>();
         Stack<BinaryTree<String>> searchNodes = new Stack<>();
-        BinaryTree<String> currentNode = createBinaryTree(); // Set currentNode to root of tree we are searching
+        BinaryTree<String> currentNode = BinaryTreeTestUtil.createStringTree(); // Set currentNode to root of tree we are searching
         String searchTerm = "O";
 
         while (true)
@@ -56,18 +57,5 @@ public class BinaryTreeDFS
                 continue;
             }
         }
-    }
-
-
-
-    private static BinaryTree<String> createBinaryTree()
-    {
-        BinaryTree<String> newTree = new BinaryTree<>();
-        newTree.setData("G");
-        newTree.addLeft("R").addLeft("E").addLeft("A").addLeft("T");
-        newTree.addRight("O").addLeft("O").addLeft("D");
-        newTree.getRight().addRight("L").addLeft("D");
-        newTree.getRight().getRight().addRight("E").addRight("M");
-        return newTree;
     }
 }
