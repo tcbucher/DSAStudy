@@ -8,7 +8,7 @@ import dataStructures.util.DataStructureUtil;
  */
 public class GraphDemo
 {
-    public static void main(String args[]) {
+    public static void main(String[] args) {
 
         // create new graph instance
         Graph<String> graph = DataStructureUtil.createStringGraph();

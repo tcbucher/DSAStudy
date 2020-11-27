@@ -1,15 +1,13 @@
 package dataStructures.binaryTree;
 
-public class DemoBinaryTree {
+import dataStructures.util.DataStructureUtil;
+
+public class BinaryTreeDemo
+{
 
 	public static void main(String[] args) {
 		
-		BinaryTree<String> demoBT = new BinaryTree<>();
-		
-		demoBT.setData("G");
-		demoBT.addLeft("R").addLeft("E").addLeft("A").addLeft("T");
-		demoBT.addRight("O").addLeft("O").addLeft("D");
-		demoBT.getRight().addRight("L").addLeft("D");
+		BinaryTree<String> demoBT = DataStructureUtil.createStringTree();
 		
 		System.out.println(demoBT.getData());
 		
@@ -22,8 +20,10 @@ public class DemoBinaryTree {
 		}
 		
 		// Spell out GOLD
-		StringBuilder message = new StringBuilder(demoBT.getData().toString());
-		message.append(demoBT.getLeft().getData().toString());
+		String message = demoBT.getData();
+		message += demoBT.getLeft().getData();
+
+		System.out.println(message);
 		
 	}
 

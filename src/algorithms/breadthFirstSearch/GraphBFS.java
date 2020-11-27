@@ -1,4 +1,4 @@
-package algorithms.depthFirstSearch;
+package algorithms.breadthFirstSearch;
 
 public class GraphBFS
 {
