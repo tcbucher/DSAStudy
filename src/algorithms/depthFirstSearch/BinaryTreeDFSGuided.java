@@ -1,7 +1,7 @@
 package algorithms.depthFirstSearch;
 
 import dataStructures.binaryTree.BinaryTree;
-import dataStructures.binaryTree.BinaryTreeTestUtil;
+import dataStructures.util.DataStructureUtil;
 import dataStructures.stack.Stack;
 
 /**
@@ -13,7 +13,7 @@ public class BinaryTreeDFSGuided
 {
     public static void main(String[] args)
     {
-        BinaryTree<String> currentNode = BinaryTreeTestUtil.createStringTree();
+        BinaryTree<String> currentNode = DataStructureUtil.createStringTree();
         Stack<String> inOrderStack = inOrderDFS(currentNode);
 
         String searchTerm = "A";

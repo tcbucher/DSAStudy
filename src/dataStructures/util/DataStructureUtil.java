@@ -1,6 +1,8 @@
-package dataStructures.binaryTree;
+package dataStructures.util;
 
-public class BinaryTreeTestUtil
+import dataStructures.binaryTree.BinaryTree;
+
+public class DataStructureUtil
 {
     public static BinaryTree<String> createStringTree()
     {
