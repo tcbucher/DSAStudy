@@ -1,50 +1,65 @@
 package dataStructures.graph;
 
+import java.util.*;
+
 /**
- * My attempt at implementing a graph data structure as a way of learning about them.
- * This particular graph stores any object type.
- * This is a work in progress and may not be optimal
- * @author Tim Bucher
- *
+ * This is a Graph example from the web.  See source below.
+ * https://javabycode.com/dsa/graph-data-structure-in-java.html
+ * I genericized it as it originally only stored Integers as the vertices
  */
 public class Graph<T>
 {
-	Vertex head;
-	int vertexCount;
-	int edgeCount;
-	
-	public class Vertex
-	{
+    // We use Hashmap to store the edges in the graph
+    // Hashmap keys are the vertices and values are the edges
+    private Map<T, List<T>> map = new HashMap<>();
 
-		T data;
-		Vertex[] connections;
-		boolean visited;
-		private Vertex(T data)
-		{
-			this.data = data;
-			this.connections = null;
-		}
+    // adds a new vertex to the graph
+    public void addVertex(T vertex) {
+        map.put(vertex, new LinkedList<T>());
+    }
 
-		public Vertex connect(Vertex toVertex)
-		{
-			return toVertex;
-		}
-	}
+    // adds the edge of source and destination vertices
+    public void addEdge(T sVertex, T dVertex) {
 
-	public int getVertexCount()
-	{
-		return this.vertexCount;
-	}
+        if (!map.containsKey(sVertex))
+            addVertex(sVertex);
 
-	public int getEdgeCount()
-	{
-		return this.edgeCount;
-	}
-	
-	@Override
-	public String toString()
-	{
-		//TODO: Implement a toString
-		return "Implement toString in Graph";
-	}
+        if (!map.containsKey(dVertex))
+            addVertex(dVertex);
+
+        map.get(sVertex).add(dVertex);
+    }
+
+    // get graph size
+    public int size() {
+        return map.keySet().size();
+    }
+
+    // return the count of edges
+    public int getEdgesCount() {
+        int count = 0;
+        for (T v : map.keySet()) {
+            count += map.get(v).size();
+        }
+        return count;
+    }
+
+    // Displays the adjacency list of each vertex.
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+
+        for (T vertex : map.keySet())
+        {
+            builder.append(vertex).append(": ");
+
+            for (T edge : map.get(vertex))
+            {
+                builder.append(edge).append(" ");
+            }
+
+            builder.append("\n");
+        }
+        return builder.toString();
+    }
 }
