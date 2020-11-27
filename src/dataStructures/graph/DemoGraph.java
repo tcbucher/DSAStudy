@@ -11,24 +11,14 @@ public class DemoGraph
         // create new graph instance
         Graph g = new Graph();
 
-        // edges are added.
-        g.addEdge(10, 20);
-        g.addEdge(10, 40);
-        g.addEdge(20, 10);
-        g.addEdge(20, 30);
-        g.addEdge(30, 20);
-        g.addEdge(30, 40);
-        g.addEdge(40, 10);
-        g.addEdge(40, 30);
-
         // print the graph.
-        System.out.println("Here is the graph:\n" + g.toString());
+        System.out.println(String.format("Here is the graph: %s",g.toString()));
 
         // print number of vertices in the graph.
-        System.out.println("Number of vertices graph: "+g.size());
+        System.out.println("Number of vertices graph: "+g.getVertexCount());
 
         // print number of edges in the graph.
-        System.out.println("Number of edges graph: "+g.getEdgesCount());
+        System.out.println("Number of edges graph: "+g.getEdgeCount());
 
     }
 }
