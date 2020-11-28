@@ -38,8 +38,8 @@ public class Graph<T>
     // return the count of edges
     public int getEdgesCount() {
         int count = 0;
-        for (T v : map.keySet()) {
-            count += map.get(v).size();
+        for (T vertex : map.keySet()) {
+            count += map.get(vertex).size();
         }
         return count;
     }
