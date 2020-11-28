@@ -40,7 +40,7 @@ public class Queue<T> {
 		return (this.isEmpty())? null : (T) values[values.length - 1];
 	}
 
-	private boolean isEmpty()
+	public boolean isEmpty()
 	{
 		return values.length == 0;
 	}
