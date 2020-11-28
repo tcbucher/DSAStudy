@@ -6,37 +6,67 @@ package dataStructures.linkedList;
  * @author Tim Bucher
  *
  */
-public class LinkedList<T>
+public class LinkedList<T> implements Iterator<T>
 {
 	Node head;
+	Node tail;
+	Node cursor;
 	int size;
-	
-	// Create an add method
-	public LinkedList<T> add(LinkedList<T> list, T toAdd)
+
+	/**
+	 * A fluent method for adding data to the list.
+	 * @param toAdd data to add to the end of the list
+	 * @return This list with new data added
+	 */
+	public LinkedList<T> append(T toAdd)
 	{
 		Node newNode = new Node(toAdd);
-		
-		// If list is null, will throw NPE, but for the sake of example, I don't care
-		// Client code should pass in a LinkedList of T
-		Node last = list.head;
-		
-		if (last == null)
+
+		if(toAdd == null)
+			throw new IllegalArgumentException("Will not accept null parameter");
+
+		// If list is currently empty, set head and tail to the new node and return
+		if (this.head == null)
 		{
-			list.head = newNode;
-			return list;
+			this.head = this.tail = newNode;
+			this.cursor = null;
+			return this;
 		}
-		
-		while (last.next != null)
-		{
-			last = last.next;
-		}
-		
-		last.next = newNode;
+
+		// If list is not empty, add the new node as the tail
+		tail.next = newNode;
+		tail =  newNode;
 
 		size++;
+		return this;
 
-		return list;
-		
+	}
+
+	@Override
+	public void reset()
+	{
+		this.cursor = this.head;
+	}
+
+	@Override
+	public boolean hasNext()
+	{
+		return (cursor == null)? this.head != null : this.cursor.next != null;
+	}
+
+	@Override
+	public T getNext()
+	{
+		if (!this.hasNext())
+			throw new IndexOutOfBoundsException("Linked list does not contain a next item");
+
+		cursor = (cursor == null)? this.head : cursor.next;
+		return cursor.data;
+	}
+
+	public boolean isEmpty()
+	{
+		return this.head == null;
 	}
 
 	public int size()
@@ -59,20 +89,17 @@ public class LinkedList<T>
 	@Override
 	public String toString()
 	{
-		String value = "LinkedList:{";
-		
-		Node last = this.head;
-		while (last != null && last.next != null)
+		StringBuilder builder = new StringBuilder("LinkedList {");
+
+		Node node = this.head;
+		while (node != null)
 		{
-			value += last.data.getClass();
-			value += ": ";
-			value += last.next.toString();
-			value += ",";
-			value += System.lineSeparator();
-			last = last.next;
+			builder.append(node.data);
+			builder.append((node.next == null)? "" : ", ");
+			node = node.next;
 		}
-		
-		return value + "}";
+
+		return builder.append("}").toString();
 		
 	}
 }

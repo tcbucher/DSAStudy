@@ -6,12 +6,12 @@ public class DemoLinkedList {
 	{
 		LinkedList<String> list = new LinkedList<>();
 		
-		list = list.add(list, "Apple");
-		list = list.add(list, "Boeing");
-		list = list.add(list, "Canon");
-		list = list.add(list, "Deloitte");
-		list = list.add(list, "Epson");
-		list = list.add(list, "Facebook");
+		list = list.append("Apple")
+				.append("Boeing")
+				.append("Canon")
+				.append("Deloitte")
+				.append("Epson")
+				.append("Facebook");
 		
 		System.out.println(list);
 
