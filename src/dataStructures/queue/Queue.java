@@ -1,5 +1,7 @@
 package dataStructures.queue;
 
+import java.util.Arrays;
+
 public class Queue<T> {
 
 	private Object[] values;
@@ -11,17 +13,8 @@ public class Queue<T> {
 	
 	public void enqueue(T data)
 	{
-		//Create a new array with the new data at the head
-		Object[] newValues = new Object[values.length + 1];
-		newValues[0] = data;
-		
-		// Add the existing data to the new array
-		for (int i = 0; i < values.length; i++)
-		{
-			newValues[i + 1] = values[i];
-		}
-		
-		values = newValues;
+		values = Arrays.copyOf(values, values.length + 1);
+		values[values.length - 1] = data;
 	}
 	
 	public T dequeue()
@@ -31,16 +24,9 @@ public class Queue<T> {
 			return null;  // Not ideal, since client can validly enqueue a null reference
 		}
 
-		T data = (T) values[values.length - 1];
+		T data = (T) values[0];
+		values = Arrays.copyOfRange(values, 1, values.length);
 
-		Object[] newValues = new Object[values.length - 1];
-		for (int i = 0; i < newValues.length; i++)
-		{
-			newValues[i] = values[i];
-		}
-
-		values = newValues;
-		
 		return data;
 	}
 	
@@ -62,16 +48,15 @@ public class Queue<T> {
 	@Override
 	public String toString()
 	{
-		String returnString = "Queue{";
-		
+		String returnString = "Queue {";
+
 		for (Object value : values)
 		{
 			returnString += value.toString();
-			returnString += ",";
-			returnString += System.lineSeparator();
-		}
-		
-		return returnString + "}";
+			returnString += ", ";
+ 		}
+
+		return returnString.substring(0, returnString.length() - 2) + "}";
 	}
 	
 }
