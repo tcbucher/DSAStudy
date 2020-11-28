@@ -6,12 +6,13 @@ package dataStructures.linkedList;
  * @author Tim Bucher
  *
  */
-public class LinkedList<T extends Object>
+public class LinkedList<T>
 {
 	Node head;
+	int size;
 	
 	// Create an add method
-	public LinkedList add(LinkedList<T> list, T toAdd)
+	public LinkedList<T> add(LinkedList<T> list, T toAdd)
 	{
 		Node newNode = new Node(toAdd);
 		
@@ -31,9 +32,16 @@ public class LinkedList<T extends Object>
 		}
 		
 		last.next = newNode;
-		
+
+		size++;
+
 		return list;
 		
+	}
+
+	public int size()
+	{
+		return this.size;
 	}
 	
 	private class Node
