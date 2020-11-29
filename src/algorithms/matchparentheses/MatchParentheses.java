@@ -1,4 +1,4 @@
-package algorithms.reverselinkedlist;
+package algorithms.matchparentheses;
 
 public class MatchParentheses
 {
