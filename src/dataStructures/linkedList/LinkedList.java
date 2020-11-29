@@ -45,7 +45,7 @@ public class LinkedList<T> implements Iterator<T>
 	@Override
 	public void reset()
 	{
-		this.cursor = this.head;
+		this.cursor = null;
 	}
 
 	@Override
