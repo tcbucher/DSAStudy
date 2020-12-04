@@ -20,13 +20,14 @@ public class LinkedList<T> implements Iterator<T>
 	 */
 	public LinkedList<T> append(T toAdd)
 	{
+		if(toAdd == null) {
+			throw new IllegalArgumentException("Will not accept null parameter");
+		}
+
 		Node newNode = new Node(toAdd);
 
-		if(toAdd == null)
-			throw new IllegalArgumentException("Will not accept null parameter");
-
 		// If list is currently empty, set head and tail to the new node and return
-		if (this.head == null)
+		if (this.isEmpty())
 		{
 			this.head = this.tail = newNode;
 			this.cursor = null;
@@ -39,7 +40,6 @@ public class LinkedList<T> implements Iterator<T>
 
 		size++;
 		return this;
-
 	}
 
 	@Override
@@ -74,7 +74,7 @@ public class LinkedList<T> implements Iterator<T>
 		return this.size;
 	}
 	
-	private class Node
+	protected class Node
 	{
 		T data;
 		Node next;
