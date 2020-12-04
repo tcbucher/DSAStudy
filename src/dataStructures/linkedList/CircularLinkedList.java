@@ -20,10 +20,4 @@ public class CircularLinkedList<T> extends LinkedList<T>
 		this.tail.next = this.head;  // Tail will always contain a reference to the head.
 		return this;
 	}
-
-	@Override
-	public boolean hasNext()
-	{
-		return this.head != null;
-	}
 }
