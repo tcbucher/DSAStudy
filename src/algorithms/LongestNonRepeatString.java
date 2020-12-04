@@ -22,14 +22,8 @@ public class LongestNonRepeatString
 
             for (String currentChar : input.substring(start).split(""))
             {
-                // If we find a duplicate, jump the start index
-                // to the character after the first instance of the duplicate, for efficiency
-                // e.g. When it finds the second B in "ABCDEB", will set start to the C
                 if (charsFound.contains(currentChar))
-                {
-                    start = input.indexOf(currentChar, start);
                     break;
-                }
 
                 charsFound += currentChar;
             }
