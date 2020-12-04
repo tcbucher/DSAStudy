@@ -8,9 +8,9 @@ package dataStructures.linkedList;
  */
 public class LinkedList<T> implements Iterator<T>
 {
-	Node head;
-	Node tail;
-	Node cursor;
+	protected Node head;
+	protected Node tail;
+	protected Node cursor;
 	int size;
 
 	/**
